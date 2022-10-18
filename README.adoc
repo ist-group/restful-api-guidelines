@@ -21,6 +21,9 @@ learnings and experiences.
 
 See link:BUILD.adoc[BUILD documentation] for technical details.
 
+== Fork
+These guidelines has been forked from https://github.com/zalando/restful-api-guidelines[Zalando] and re-purposed for IST's needs.
+
 == License
 
 We have published these guidelines under the CC-BY (Creative commons
