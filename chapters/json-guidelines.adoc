@@ -269,8 +269,6 @@ The following guidelines define standard objects and fields:
 
 * <<248>>
 * <<249>>
-* <<173>>
-
 
 Example JSON schema:
 

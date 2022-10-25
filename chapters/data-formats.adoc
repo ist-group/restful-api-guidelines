@@ -27,16 +27,16 @@ You *must* use these formats, whenever applicable:
 | `string` | `duration` | {RFC-3339}[RFC 3339] internet profile -- subset of https://tools.ietf.org/html/rfc3339#ref-ISO8601[ISO 8601] | `"P1DT30H4S"`
 | `string` | `period` | {RFC-3339}[RFC 3339] internet profile -- subset of https://tools.ietf.org/html/rfc3339#ref-ISO8601[ISO 8601] | `"2019-07-30T06:43:40.252Z/PT3H"`
 | `string` | `password` |  | `"secret"`
-| `string` | `email` | {RFC-5322}[RFC 5322] | `"example@zalando.de"`
-| `string` | `idn-email` | {RFC-6531}[RFC 6531] | `"hello@bücher.example"`
-| `string` | `hostname` | {RFC-1034}[RFC 1034] | `"www.zalando.de"`
-| `string` | `idn-hostname` | {RFC-5890}[RFC 5890] | `"bücher.example"`
+| `string` | `email` | {RFC-5322}[RFC 5322] | `"example@ist.com"`
+| `string` | `idn-email` | {RFC-6531}[RFC 6531] | `"hello@växjö.example"`
+| `string` | `hostname` | {RFC-1034}[RFC 1034] | `"www.ist.com"`
+| `string` | `idn-hostname` | {RFC-5890}[RFC 5890] | `"växjö.example"`
 | `string` | `ipv4` | {RFC-2673}[RFC 2673] | `"104.75.173.179"`
 | `string` | `ipv6` | {RFC-4291}[RFC 4291] | `"2600:1401:2::8a"`
-| `string` | `uri` | {RFC-3986}[RFC 3986] | `"https://www.zalando.de/"`
-| `string` | `uri-reference` | {RFC-3986}[RFC 3986] | `"/clothing/"`
-| `string` | `uri-template` | {RFC-6570}[RFC 6570] | `"/users/\{id\}"`
-| `string` | `iri` | {RFC-3987}[RFC 3987] | `"https://bücher.example/"`
+| `string` | `uri` | {RFC-3986}[RFC 3986] | `"https://www.ist.com/"`
+| `string` | `uri-reference` | {RFC-3986}[RFC 3986] | `"/grades/"`
+| `string` | `uri-template` | {RFC-6570}[RFC 6570] | `"/grades/\{id\}"`
+| `string` | `iri` | {RFC-3987}[RFC 3987] | `"https://växjö.example/"`
 | `string` | `iri-reference` | {RFC-3987}[RFC 3987] | `"/damenbekleidung-jacken-mäntel/"`
 | `string` | <<144, `uuid`>> | {RFC-4122}[RFC 4122] | `"e2ab873e-b295-11e9-9c02-..."`
 | `string` | `json-pointer` | {RFC-6901}[RFC 6901] | `"/items/0/id"`
@@ -56,8 +56,7 @@ You *must* use these formats, whenever applicable:
 | `OpenAPI type` | `format` | Specification | Example
 | `string` | `iso-639-1`| two letter language code -- see {ISO-639-1}[ISO 639-1]. Hint: In the past we used `iso-639` as format. | `"en"`
 | `string` | `bcp47` | multi letter language tag -- see {BCP47}[BCP 47]. It is a compatible extension of {ISO-639-1}[ISO 639-1] optionally with additional information for language usage, like region, variant, script. | `"en-DE"`
-| `string` | `iso-3166-alpha-2` | two letter country code -- see {ISO-3166-1-alpha-2}[ISO 3166-1 alpha-2]. Hint: In the past we used `iso-3166` as format. | `"GB"`  *Hint:* It is `"GB"`, not `"UK"`, even though `"UK"` has seen some use at Zalando.
-| `string` | `iso-4217` | three letter currency code -- see {ISO-4217}[ISO 4217] | `"EUR"`
+| `string` | `iso-3166-alpha-2` | two letter country code -- see {ISO-3166-1-alpha-2}[ISO 3166-1 alpha-2]. Hint: In the past we used `iso-3166` as format. | `"GB"`  *Hint:* It is `"GB"`, not `"UK"`, even though `"UK"` has seen some use at ist.com `string` | `iso-4217` | three letter currency code -- see {ISO-4217}[ISO 4217] | `"EUR"`
 | `string` | `gtin-13` | Global Trade Item Number -- see {GTIN}[GTIN] | `"5710798389878"`
 |=====================================================================
 
@@ -141,7 +140,7 @@ that are very convenient in searches and are included in the below
    dur-year          = 1*DIGIT "Y" [dur-month]
    dur-date          = (dur-day / dur-month / dur-year) [dur-time]
    duration          = "P" (dur-date / dur-time / dur-week)
-   
+
    period-explicit   = iso-date-time "/" iso-date-time
    period-start      = iso-date-time "/" (duration / "..")
    period-end        = (duration / "..") "/" iso-date-time
