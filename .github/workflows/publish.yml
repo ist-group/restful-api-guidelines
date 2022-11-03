@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: creates output
+        run:  make
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: 'output'
+          destination-github-username: 'ist-group'
+          destination-repository-name: 'ist-group.github.io'
+          user-email: jonas.erlandsson@ist.com
+          target-branch: main
+          target-directory: 'rest-guidelines'
