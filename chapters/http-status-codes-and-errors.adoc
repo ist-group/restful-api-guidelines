@@ -57,7 +57,7 @@ responses:
     content:
       "application/problem+json":
         schema:
-          $ref: 'https://opensource.zalando.com/restful-api-guidelines/models/problem-1.0.1.yaml#/Problem'
+          $ref: 'https://ist-group.github.io/rest-guidelines/models/problem-1.0.1.yaml#/Error'
 ----
 
 
