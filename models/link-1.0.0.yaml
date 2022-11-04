@@ -1,0 +1,33 @@
+Link:
+  type: object
+  x-examples:
+    example-1:
+      href: /users/123
+      title: User 123
+      description: Go to the user with ID 123
+      rel: self
+      type: GET
+  title: ''
+  properties:
+    href:
+      type: string
+      format: uri
+      example: 'https://example-api.ist.com/users/123'
+    title:
+      type: string
+    description:
+      type: string
+    rel:
+      type: string
+      example: self
+    type:
+      type: string
+      enum:
+        - GET
+        - POST
+        - PUT
+        - PATCH
+        - DELETE
+      example: GET
+  required:
+    - href
