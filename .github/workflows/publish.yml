@@ -5,9 +5,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  publish-guidelines:
     runs-on: ubuntu-latest
-    container: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: creates output
