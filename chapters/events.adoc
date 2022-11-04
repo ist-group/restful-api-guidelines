@@ -71,6 +71,8 @@ schema as well as the event type definition available for review.
 
 [#197]
 == {MUST} specify and register events as event types
+**note: Events are not yet covered by the API Special Interest Group at IST**
+This is subject of change so take this into consideration.
 
 In Zalando's architecture, events are registered using a structure
 called an _Event Type_. The Event Type declares standard information as
