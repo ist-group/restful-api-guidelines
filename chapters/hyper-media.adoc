@@ -21,49 +21,25 @@ proper link relationships in your APIs as stated in rules below.
 
 
 [#163]
-== {MAY} use REST maturity level 3 - HATEOAS
+== {SHOULD} use REST maturity level 3 - HATEOAS
 
-We do not generally recommend to implement
+We do recommend to implement
 http://martinfowler.com/articles/richardsonMaturityModel.html#level3[REST
-Maturity Level 3]. HATEOAS comes with additional API complexity without
-real value in our SOA context where client and server interact via REST
-APIs and provide complex business functions as part of our e-commerce
-SaaS platform.
+Maturity Level 3].
 
-Our major concerns regarding the promised advantages of HATEOAS (see
-also
-https://www.infoq.com/news/2014/03/rest-at-odds-with-web-apis[RESTistential
-Crisis over Hypermedia APIs],
-https://jeffknupp.com/blog/2014/06/03/why-i-hate-hateoas/[Why I Hate
-HATEOAS] and others for a detailed discussion):
+In a distributed system it is really helpful to leave the responsibilty of referencing
+related resources to the resource itself.
+It helps with code isolation as well as service isolation. Rather than doing hacks like
+_expand, the resource can instead link to the related item without having to have deeper insight
+to the specific component.
 
-* We follow the <<100,API First principle>> with APIs explicitly defined
-  outside the code with standard specification language. HATEOAS does not
-  really add value for SOA client engineers in terms of API
-  self-descriptiveness: a client engineer finds necessary links and usage
-  description (depending on resource state) in the API reference definition
-  anyway.
-* Generic HATEOAS clients which need no prior knowledge about APIs and
-  explore API capabilities based on hypermedia information provided, is a
-  theoretical concept that we haven't seen working in practice and does not
-  fit to our SOA set-up. The OpenAPI description format (and tooling based
-  on OpenAPI) doesn't provide sufficient support for HATEOAS either.
-* In practice relevant HATEOAS approximations (e.g. following specifications
-  like HAL or JSON API) support API navigation by abstracting from URL
-  endpoint and HTTP method aspects via link types. So, Hypermedia does not
-  prevent clients from required manual changes when domain model changes
-  over time.
-* Hypermedia make sense for humans, less for SOA machine clients. We would
-  expect use cases where it may provide value more likely in the frontend and
-  human facing service domain.
-* Hypermedia does not prevent API clients to implement shortcuts and directly
-  target resources without 'discovering' them.
+It gives frontend the opportunity to let the backend service manage what the end user
+can and cannot do, simply by building up the actions available via a common structure.
 
-However, we do not forbid HATEOAS; you could use it, if you checked its
-limitations and still see clear value for your usage scenario that justifies
-its additional complexity. If you use HATEOAS please share experience and
-present your findings in the {api-guild}[API Guild (internal_link)].
-
+For integrations it opens up to not having to hard code the links
+to the related resource but gives the consumer the link it requires to retrieve it.
+If one resource ends up morphing into a new resource for whatever reason the URL can change
+without having to break each and every client using that specific endpoint.
 
 [#164]
 == {MUST} use common hypertext controls
