@@ -28,6 +28,11 @@ collection is empty) or {404} (if the collection is missing)
 [[get-with-body]]
 === GET with body payload
 
+*Note:* Using post requests to retrieve data should be avoided unless there is absolutely no way around
+doing it as a regular get. There might be use-cases where this is the only solution and then
+we can reach for it, but use this as a last resort.
+Please talk to the architects before implementing a POST as GET.
+
 APIs sometimes face the problem, that they have to provide extensive structured
 request information with {GET}, that may conflict with the size limits of
 clients, load-balancers, and servers. As we require APIs to be standard conform
@@ -46,10 +51,10 @@ following two options:
 [source,yaml]
 ----
 paths:
-  /products:
+  /students:
     post:
       description: >
-        [GET with body payload](https://opensource.zalando.com/restful-api-guidelines/#get-with-body) - no resources created:
+        [GET with body payload](https://ist-group.github.io/rest-guidelines/#get-with-body) - no resources created:
         Returns all products matching the query passed as request input payload.
       requestBody:
         required: true
@@ -61,8 +66,7 @@ paths:
 using header parameters. From a conceptual point of view, the semantic of an
 operation should always be expressed by the resource names, as well as the
 involved path and query parameters. In other words by everything that goes into
-the URL. Request headers are reserved for general context information (see
-<<183>>). In addition, size limits on query parameters and headers are not
+the URL. Request headers are reserved for general context information. In addition, size limits on query parameters and headers are not
 reliable and depend on clients, gateways, server, and actual settings. Thus,
 switching to headers does not solve the original problem.
 
@@ -78,7 +82,7 @@ applied query filters (See also <<161>>).
 [[put]]
 === PUT
 
-{PUT} requests are used to *update* (and sometimes to create) *entire*
+{PUT} requests are used to *replace* (and sometimes to create) *entire*
 resources – single or collection resources. The semantic is best described
 as _"please put the enclosed representation at the resource mentioned by
 the URL, replacing any existing resource."_.
@@ -130,10 +134,6 @@ was accepted but has not been finished yet), and exceptionally {204} with
 *Note:* By using {POST} to create resources the resource ID must not be passed as
 request input date by the client, but created and maintained by the service and
 returned with the response payload.
-
-Apart from resource creation, {POST} should be also used for scenarios that cannot
-be covered by the other methods sufficiently. However, in such cases make sure to
-document the fact that {POST} is used as a workaround (see e.g. {GET-with-Body}).
 
 *Hint:* Posting the same resource twice is *not* required to be <<idempotent>>
 (check <<149>>) and may result in multiple resources. However, you <<229>> to
@@ -238,18 +238,6 @@ The response status code of {DELETE} with query parameters requests should be
 similar to usual {DELETE} requests. In addition, it may return the status code
 {207} using a payload describing the operation results (see <<152>> for
 details).
-
-
-[[delete-with-body]]
-=== DELETE with body payload
-
-In rare cases {DELETE} may require additional information, that cannot be
-classified as filter parameters and thus should be transported via request body payload, to
-perform the operation. Since {RFC-7231}#section-4.3.5[RFC-7231] states, that
-{DELETE} has an undefined semantic for payloads, we recommend to utilize {POST}.
-In this case the POST endpoint must be documented with the hint {DELETE-with-Body}
-analog to how it is defined for {GET-with-Body}. The response status code of
-{DELETE-with-Body} requests should be similar to usual {DELETE} requests.
 
 
 [[head]]
@@ -449,7 +437,7 @@ Query parameters should have the following aspects specified:
 How query parameters are named and used is up to individual API designers.
 The following examples should serve as ideas:
 
-* `name=Zalando`, to query for elements based on property equality
+* `name=IST`, to query for elements based on property equality
 * `age=5`, to query for elements based on logical properties
 **  Assuming that elements don't actually have an `age` but rather a `birthday`
 * `max_length=5`, based on upper and lower bounds (`min` and `max`)
@@ -492,9 +480,6 @@ provides the following benefits:
 * API is defined in OpenAPI completely
 ** No external documents or grammars needed
 ** Existing means are familiar to everyone
-
-<<json-guidelines, JSON-specific rules>> and most certainly needs to make use
-of the <<get-with-body, `GET`-with-body>> pattern.
 
 
 === Example

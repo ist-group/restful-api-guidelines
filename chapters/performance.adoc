@@ -9,8 +9,7 @@ APIs should support techniques for reducing bandwidth based on client needs.
 This holds for APIs that (might) have high payloads and/or are used in
 high-traffic scenarios like the public Internet and telecommunication networks.
 Typical examples are APIs used by mobile web app clients with (often) less
-bandwidth connectivity. (Zalando is a 'Mobile First' company, so be mindful of
-this point.)
+bandwidth connectivity (IST is a company active in a variety of markets some of which bandwith might be limited, so be mindful of this point).
 
 Common techniques include:
 
@@ -108,7 +107,7 @@ OpenAPI doesn't support you in formally specifying different return object
 schemes depending on a parameter. When you define the field parameter, we
 recommend to provide the following description: `Endpoint supports filtering
 of return object fields as described in
-[Rule #157](https://opensource.zalando.com/restful-api-guidelines/#157)`
+[Rule #157](https://ist-group.github.io/rest-guidelines/#157)`
 
 The syntax of the query {fields} value is defined by the following
 https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form[BNF] grammar.
@@ -177,7 +176,7 @@ GET /order/123?embed=(items) HTTP/1.1
 
 
 [#227]
-== {MUST} document cacheable `GET`, `HEAD`, and `POST` endpoints
+== {MUST} document cacheable `GET` and `HEAD` endpoints
 
 Caching has to take many aspects into account, e.g. general <<cacheable,
 cacheability>> of response information, our guideline to protect endpoints
@@ -208,7 +207,7 @@ Cache-Control: no-cache, no-store, must-revalidate, max-age=0
 If your service really requires to support caching, please observe the
 following rules:
 
-* Document all <<cacheable>> {GET}, {HEAD}, and {POST} endpoints by declaring
+* Document all <<cacheable>> {GET} and {HEAD} endpoints by declaring
   the support of {Cache-Control}, {Vary}, and {ETag} headers in response.
   *Note:* you must not define the {Expires} header to prevent redundant and
   ambiguous definition of cache lifetime. A sensible default documentation of

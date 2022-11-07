@@ -75,10 +75,10 @@ following field semantics:
 
 * [[self]]{self}:the link or cursor pointing to the same page.
 * [[first]]{first}: the link or cursor pointing to the first page.
-* [[prev]]{prev}: the link or cursor pointing to the previous page. 
-It is not provided, if it is the first page. 
+* [[prev]]{prev}: the link or cursor pointing to the previous page.
+It is not provided, if it is the first page.
 * [[next]]{next}: the link or cursor pointing to the next page.
-It is not provided, if it is the last page. 
+It is not provided, if it is the last page.
 * [[last]]{last}: the link or cursor pointing to the last page.
 
 Pagination responses should contain the following additional array field to
@@ -88,7 +88,7 @@ transport the page content:
   page ({items} may be replaced by a resource name).
 
 To simplify user experience, the applied query filters may be returned using
-the following field (see also {GET-with-body}):
+the following field:
 
 * [[query]]{query}: object containing the query filters applied in the search
   request to filter the collection resource.
@@ -152,11 +152,11 @@ also <<pagination-fields>> for details):
 [source,json]
 ----
 {
-  "self": "http://my-service.zalandoapis.com/resources?cursor=<self-position>",
-  "first": "http://my-service.zalandoapis.com/resources?cursor=<first-position>",
-  "prev": "http://my-service.zalandoapis.com/resources?cursor=<previous-position>",
-  "next": "http://my-service.zalandoapis.com/resources?cursor=<next-position>",
-  "last": "http://my-service.zalandoapis.com/resources?cursor=<last-position>",
+  "self": "http://api.ist.com/service-name/resources?cursor=<self-position>",
+  "first": "http://api.ist.com/service-name/resources?cursor=<first-position>",
+  "prev": "http://api.ist.com/service-name/resources?cursor=<previous-position>",
+  "next": "http://api.ist.com/service-name/resources?cursor=<next-position>",
+  "last": "http://api.ist.com/service-name/resources?cursor=<last-position>",
   "query": {
     "query-param-<1>": ...,
     "query-param-<n>": ...

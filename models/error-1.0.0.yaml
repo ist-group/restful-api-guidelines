@@ -1,0 +1,31 @@
+    Error:
+      type: object
+      x-examples:
+        example:
+          trace: cd05b1fc-bc10-4ba6-9a9f-b73c503dbd77
+          errors:
+            - code: SELF_MANAGEMENT_NOT_ALLOWED
+              message: Users are not allowed to modify their own permissions
+      properties:
+        trace:
+          type: string
+          format: uuid
+          description: >
+            A UUID used to for developers to debug the error from a specific request.
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                example: SELF_MANAGEMENT_NOT_ALLOWED
+                description: >
+                  An internal code that can be used to display a localized text for end users.
+              message:
+                type: string
+                example: Users are not allowed to modify their own permissions
+                description: >
+                  A short summary of the problem. Written in English and readable
+                  for engineers, usually not suited for non technical stakeholders and
+                  not localized.

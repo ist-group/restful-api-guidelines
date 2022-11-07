@@ -71,6 +71,8 @@ schema as well as the event type definition available for review.
 
 [#197]
 == {MUST} specify and register events as event types
+**note: Events are not yet covered by the API Special Interest Group at IST**
+This is subject of change so take this into consideration.
 
 In Zalando's architecture, events are registered using a structure
 called an _Event Type_. The Event Type declares standard information as
@@ -122,7 +124,7 @@ EventType:
         - external-public
       description: |
         Intended target audience of the event type, analogue to audience definition for REST APIs
-        in rule #219 -- see https://opensource.zalando.com/restful-api-guidelines/#219
+        in rule #219 -- see https://ist-group.github.io/rest-guidelines/#219
     owning_application:
       description: |
         Name of the application (eg, as would be used in infrastructure

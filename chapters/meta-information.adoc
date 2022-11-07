@@ -122,11 +122,10 @@ groups with clear organisational and legal boundaries:
   being used by internal helper and worker services or that support service operation.
 *business-unit-internal*::
   The API consumers with this audience are restricted to applications of a
-  specific product portfolio owned by the same business unit.
+  specific product portfolio owned by the same business unit (e.g IST Products teams).
 *company-internal*::
   The API consumers with this audience are restricted to applications owned
-  by the business units of the same the company (e.g. Zalando company with
-  Zalando SE, Zalando Payments SE & Co. KG. etc.)
+  by the business units of the same the company (e.g. different teams within the IST group)
 *external-partner*::
   The API consumers with this audience are restricted to applications of
   business partners of the company owning the API and the company itself.
@@ -168,7 +167,7 @@ Example:
 openapi: 3.0.1
 info:
   x-audience: company-internal
-  title: Parcel Helper Service API
+  title: Log Service API
   description: API for <...>
   version: 1.2.4
   <...>
@@ -184,7 +183,7 @@ _host_, _permission_, and _event names_ within an application landscape. It
 helps to preserve uniqueness of names while giving readers meaningful context
 information about the addressed component. Besides, the most important aspect
 is, that it allows to keep APIs stable in the case of technical and
-organizational changes (Zalando for example maintains an internal naming convention).
+organizational changes.
 
 A unique `functional-name` is assigned to each functional component serving an API.
 It is built of the domain name of the functional group the component is belonging
@@ -192,7 +191,7 @@ to and a unique a short identifier for the functional component itself:
 
 [source,bnf]
 ----
-<functional-name>      ::= <functional-domain>-<functional-component>
+<functional-name>      ::= <functional-domain>/<functional-component>
 <functional-domain>    ::= [a-z][a-z0-9-]* -- managed functional group of components
 <functional-component> ::= [a-z][a-z0-9-]* -- name of API owning functional component
 ----
@@ -216,17 +215,17 @@ Please see the following rules for detailed functional naming patterns:
 
 
 [#224]
-== {MUST} follow naming convention for hostnames
+== {MUST} follow naming convention for basepaths
 
-Hostnames in APIs must, respectively should conform to the functional naming
+Basepaths in APIs must, respectively should conform to the functional naming
 depending on the <<219, audience>> as follows (see <<223>> for details and
 `<functional-name>` definition):
 
 [source,bnf]
 -----
-<hostname>             ::= <functional-hostname> | <application-hostname>
+<basepath>             ::= <functional-hostname> | <application-hostname>
 
-<functional-hostname>  ::= <functional-name>.zalandoapis.com
+<functional-hostname>  ::= api.ist.com/<functional-name>
 -----
 
 *Hint:* The following convention (e.g. used by legacy STUPS infrastructure) is deprecated
@@ -234,12 +233,7 @@ and *only* allowed for hostnames of <<219, component-internal>> APIs:
 
 [source,bnf]
 -----
-<application-hostname> ::= <application-id>.<organization-unit>.zalan.do
+<application-hostname> ::= <application-id>.<organization-unit>.ist.com
 <application-id>       ::= [a-z][a-z0-9-]*  -- application identifier
 <organization-id>      ::= [a-z][a-z0-9-]*  -- organization unit identifier, e.g. team identifier
 -----
-
-*Exception:* There are legacy hostnames used for APIs with `external-partner` audience
-which may not follow this rule due to backward compatibility constraints.
-The API Linter maintains an allow-list for these exceptions (including e.g.
-`api.merchants.zalando.com` and `api-sandbox.merchants.zalando.com`).
