@@ -28,6 +28,11 @@ collection is empty) or {404} (if the collection is missing)
 [[get-with-body]]
 === GET with body payload
 
+*Note:* Using post requests to retrieve data should be avoided unless there is absolutely no way around
+doing it as a regular get. There might be use-cases where this is the only solution and then
+we can reach for it, but use this as a last resort.
+Please talk to the architects before implementing a POST as GET.
+
 APIs sometimes face the problem, that they have to provide extensive structured
 request information with {GET}, that may conflict with the size limits of
 clients, load-balancers, and servers. As we require APIs to be standard conform
@@ -46,7 +51,7 @@ following two options:
 [source,yaml]
 ----
 paths:
-  /products:
+  /students:
     post:
       description: >
         [GET with body payload](https://ist-group.github.io/rest-guidelines/#get-with-body) - no resources created:
