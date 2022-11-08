@@ -1,0 +1,43 @@
+    Errors:
+      required:
+        - errors
+        - trace
+      type: object
+      properties:
+        trace:
+          type: string
+          description: Identifier used to correlate this error with logs
+          example: 'cd05b1fc-bc10-4ba6-9a9f-b73c503dbd77'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+      description: Information on where and why an error has occurred.
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Semantic strings, also hinting to the reason for the error occurring.
+          example: 'SELF_MANAGEMENT_NOT_ALLOWED'
+        message:
+          type: string
+          description: |
+            Information for the developer to further understand why the
+            error occurred and will always be in English regardless of language requested
+            in the header.
+          example: 'Users are not allowed to modify their own permissions'
+        parameters:
+          type: array
+          description: Lists all values that is related to this error
+          items:
+            type: string
+            description: The value of an offending parameter
+            example: 'johndoe'
+      description: |
+        Supplies the consumer with further insight into what has gone wrong.
+        Information adding meaning and value to the developer, and not messages that
+        are to be displayed directly to the end user.
