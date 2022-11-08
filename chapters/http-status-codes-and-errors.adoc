@@ -57,7 +57,7 @@ responses:
     content:
       "application/problem+json":
         schema:
-          $ref: 'https://ist-group.github.io/rest-guidelines/models/error-1.0.0.yaml#/Error'
+          $ref: 'https://ist-group.github.io/rest-guidelines/models/errors-1.0.0.yaml#/Errors'
 ----
 
 
