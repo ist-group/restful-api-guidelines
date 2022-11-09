@@ -11,7 +11,7 @@
         errors:
           type: array
           items:
-            $ref: '#/components/schemas/Error'
+            $ref: '#/Error'
       description: Information on where and why an error has occurred.
     Error:
       required:
