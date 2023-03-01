@@ -51,7 +51,7 @@ assets:
 	mkdir -p $(DIRBUILDS);
 	cp -r assets $(DIRBUILDS)/;
 	cp -r models $(DIRBUILDS)/;
-	cp -r models/{errors,pagination,link}-1.0.0.yaml $(DIRBUILDS);
+	cp -r models/{errors-1.0.0,pagination-{2,1}.0.0,link-1.0.0}.yaml $(DIRBUILDS);
 	cp -r -n legacy/* $(DIRBUILDS);
 
 rules: check-rules

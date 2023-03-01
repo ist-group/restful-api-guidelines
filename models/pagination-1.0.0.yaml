@@ -1,0 +1,42 @@
+Pagination:
+  title: Pagination
+  type: object
+  description: 'Providing total number of pages, current page number and link to the last page has performance impact so they are optional'
+  properties:
+    total:
+      type: integer
+      example: 500
+      format: int32
+      minimum: 0
+      description: Optional total number of pages
+    size:
+      type: integer
+      example: 10
+      format: int32
+      minimum: 0
+      description: Size of one page
+    current:
+      type: integer
+      example: 2
+      minimum: 1
+      format: int32
+      description: Optional current page number
+    last:
+      type: string
+      format: uri
+      example: 'https://api.ist.com/students?cursor=ASdasdfawiern'
+      description: Optional link to the last page
+    next:
+      type: string
+      format: uri
+      example: 'https://api.ist.com/students?cursor=PFdsasqNASjd'
+      description: Link to the next page
+    previous:
+      type: string
+      format: uri
+      example: 'https://api.ist.com/students?cursor=FAfsafweqsnHDDas'
+      description: Link to the previuous page
+  required:
+    - size
+    - next
+    - previous
