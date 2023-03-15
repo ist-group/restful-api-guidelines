@@ -1,0 +1,45 @@
+Pagination:
+  title: Pagination
+  type: object
+  description: |
+    'Response object to provide cursor based pagination.
+     Provides navigation links to the current, first, previous, next and last page of the resultset.
+     The value of the cursor is an opaque string that must never be inspected or constructed by clients.
+     See https://ist-group.github.io/rest-guidelines/#cursor-based-pagination
+     The total property provides the number of elements of the entire collection. The calculation of this number may have a
+     significant system and performance impact. Therefore you should avoid providing a total count unless there is a clear need to do so.'
+  properties:
+    total:
+      type: integer
+      example: 500
+      format: int32
+      minimum: 0
+      description: Optional total number of pages
+    self:
+      type: string
+      format: uri
+      example: 'https://api.ist.com/students?cursor=HUTZgriawiloJM'
+      description: Pagination link pointing to the current page.
+    first:
+      type: string
+      format: uri
+      example: 'https://api.ist.com/students?cursor=ASdagriawimke'
+      description: Pagination link pointing to the first page.
+    prev:
+      type: string
+      format: uri
+      example: 'https://api.ist.com/students?cursor=FAfsafweqsnHDDas'
+      description: Pagination link pointing to the previous page. It is not provided, if it is the first page.
+    next:
+      type: string
+      format: uri
+      example: 'https://api.ist.com/students?cursor=PFdsasqNASjd'
+      description: Pagination link pointing to the next page. It is not provided, if it is the last page.
+    last:
+      type: string
+      format: uri
+      example: 'https://api.ist.com/students?cursor=ASdasdfawiern'
+      description: Pagination link pointing to the last page.
+  required:
+    - self
+    - first
