@@ -1,4 +1,10 @@
 [[events]]
+= EVENT Basics - General
+The guidelines on Events are currently just placeholders from Zalando and
+while they are good to strive for in a general sense, the API SIG does not
+take it upon themselves to dictate how events must be defined nor how they should work.
+
+[[event-types]]
 = EVENT Basics - Event Types
 
 IST's architecture {SHOULD} center around decoupled microservices and in
