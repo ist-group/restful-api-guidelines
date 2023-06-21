@@ -3,13 +3,9 @@
 
 IST’s software architecture centers around decoupled microservices
 that provide functionality via RESTful APIs with a JSON payload. Small
-engineering teams own, deploy and operate these microservices in their
-AWS (team) accounts. Our APIs most purely express what our systems do,
-and are therefore highly valuable business assets.
-Our strategy emphasizes developing lots of public APIs for our
-external business partners to use via third-party applications.
+engineering teams own, deploy and operate these microservices. Our APIs most purely express what our systems do, and are therefore highly valuable business assets.
 
-With this in mind, we’ve adopted "API First" as one of our key
+With this in mind, we've adopted "API First" as one of our key
 engineering principles. Microservices development begins with API
 definition outside the code and ideally involves ample peer-review
 feedback to achieve high-quality APIs. API First encompasses a set of
@@ -41,11 +37,8 @@ interpreted as described in https://www.ietf.org/rfc/rfc2119.txt[RFC
 == IST specific information
 
 The purpose of our "RESTful API guidelines" is to define standards to
-successfully establish "consistent API look and feel" quality. The
-{api-guild}[API Guild (internal_link)]
-drafted and owns this document. Teams are responsible to fulfill
-these guidelines during API development and are encouraged to contribute
-to guideline evolution via pull requests.
+successfully establish "consistent API look and feel" quality. The API SIG repurposed these guidelines from Zalando's API guidelines and owns this document.
+Teams are responsible to fulfill these guidelines during API development and are encouraged to contribute to guideline evolution via pull requests.
 
 These guidelines will, to some extent, remain work in progress as our
 work evolves, but teams can confidently follow and trust them.
