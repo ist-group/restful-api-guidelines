@@ -37,7 +37,7 @@ interpreted as described in https://www.ietf.org/rfc/rfc2119.txt[RFC
 == IST specific information
 
 The purpose of our "RESTful API guidelines" is to define standards to
-successfully establish "consistent API look and feel" quality. The API SIG repurpused these guidelines from Zalando's API guidelines and owns this document.
+successfully establish "consistent API look and feel" quality. The API SIG repurposed these guidelines from Zalando's API guidelines and owns this document.
 Teams are responsible to fulfill these guidelines during API development and are encouraged to contribute to guideline evolution via pull requests.
 
 These guidelines will, to some extent, remain work in progress as our
