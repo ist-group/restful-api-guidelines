@@ -43,16 +43,12 @@ https://www.thoughtworks.com/insights/blog/rest-api-design-resource-modeling[RES
 * Article:
 https://martinfowler.com/articles/richardsonMaturityModel.html[Richardson Maturity Model -- Steps toward the glory of REST]
 * Book:
-https://www.amazon.de/Irresistible-APIs-Designing-that-developers/dp/1617292559[Irresistible
-APIs: Designing web APIs that developers will love]
+https://www.amazon.de/Irresistible-APIs-Designing-that-developers/dp/1617292559[Irresistible APIs: Designing web APIs that developers will love]
 * Book:
-http://www.amazon.de/REST-Practice-Hypermedia-Systems-Architecture/dp/0596805829[REST
-in Practice: Hypermedia and Systems Architecture]
-* Book: https://leanpub.com/build-apis-you-wont-hate[Build APIs You
-Won't Hate]
+http://www.amazon.de/REST-Practice-Hypermedia-Systems-Architecture/dp/0596805829[REST in Practice: Hypermedia and Systems Architecture]
+* Book: https://leanpub.com/build-apis-you-wont-hate[Build APIs You Won't Hate]
 * Fielding Dissertation:
-http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm[Architectural
-Styles and the Design of Network-Based Software Architectures]
+http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm[Architectural Styles and the Design of Network-Based Software Architectures]
 
 
 [[api-as-a-product]]
