@@ -280,11 +280,11 @@ tree_node:
       description: the identifier of the parent node of this node
       type: string
     created_at:
-      description: when got this node created
+      description: when this node was created
       type: string
       format: 'date-time'
     modified_at:
-      description: when got this node last updated
+      description: when this node was last updated
       type: string
       format: 'date-time'
   example:

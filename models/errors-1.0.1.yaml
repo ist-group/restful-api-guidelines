@@ -1,0 +1,42 @@
+Errors:
+  title: Errors
+  type: object
+  properties:
+    title:
+      type: string
+      description: |
+        Title contains a short, human-readable summary of the problem type.
+        RFC reference: https://datatracker.ietf.org/doc/html/rfc9457#name-title
+    type:
+      type: string
+      format: uri-reference
+      description: |
+        The type contains a URI reference that identifies the problem type.
+        This link will take you to the documentation where you can read more about the error in a generic context.
+        More detailed information should be given from the error items (specifically their messages and parameters).
+        RFC reference: https://datatracker.ietf.org/doc/html/rfc9457#name-type
+    trace:
+      type: string
+      format: uuid
+      description: |
+        Trace is a UUID which can be used for debugging purposes in case something goes wrong.
+        Please include this when contacting support in such a case as this will lower the time required for finding problems.
+    errors:
+      type: array
+      items:
+        type: object
+        properties:
+          code:
+            type: string
+            description: |
+              Generic code used to categorize errors. `Example: UNAUTHORIZED_REQUEST`
+          message:
+            type: string
+            description: |
+              Message detailing what caused this error.
+          parameters:
+            type: array
+            description: |
+              Sent in parameters which made this problem occur.
+            items:
+              type: string
