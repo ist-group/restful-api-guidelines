@@ -1,6 +1,10 @@
 Errors:
-  title: Errors
+  required:
+    - errors
+    - trace
+    - type
   type: object
+  description: Information on where and why an error has occurred.
   properties:
     title:
       type: string
@@ -10,6 +14,7 @@ Errors:
     type:
       type: string
       format: uri-reference
+      example: urn://errors/validation-error
       description: |
         The type contains a URI reference that identifies the problem type.
         This link will take you to the documentation where you can read more about the error in a generic context.
@@ -17,26 +22,39 @@ Errors:
         RFC reference: https://datatracker.ietf.org/doc/html/rfc9457#name-type
     trace:
       type: string
-      format: uuid
       description: |
         Trace is a UUID which can be used for debugging purposes in case something goes wrong.
-        Please include this when contacting support in such a case as this will lower the time required for finding problems.
+        Please include this when contacting support regarding API errors. This will lower the time required for finding problems.
+      example: cd05b1fc-bc10-4ba6-9a9f-b73c503dbd77
     errors:
       type: array
       items:
-        type: object
-        properties:
-          code:
-            type: string
-            description: |
-              Generic code used to categorize errors. `Example: UNAUTHORIZED_REQUEST`
-          message:
-            type: string
-            description: |
-              Message detailing what caused this error.
-          parameters:
-            type: array
-            description: |
-              Sent in parameters which made this problem occur.
-            items:
-              type: string
+        $ref: "#/Error"
+Error:
+  required:
+    - code
+    - message
+  type: object
+  properties:
+    code:
+      type: string
+      description: Semantic strings, also hinting to the reason for the error occurring.
+      example: "SELF_MANAGEMENT_NOT_ALLOWED"
+    message:
+      type: string
+      description: |
+        Information for the developer to further understand why the
+        error occurred and will always be in English regardless of language requested
+        in the header.
+      example: "Users are not allowed to modify their own permissions"
+    parameters:
+      type: array
+      description: Lists all values that is related to this error
+      items:
+        type: string
+        description: The value of an offending parameter
+        example: "johndoe"
+  description: |
+    Supplies the consumer with further insight into what has gone wrong.
+    Information adding meaning and value to the developer, and not messages that
+    are to be displayed directly to the end user.
