@@ -28,10 +28,6 @@ specification using a single *self-contained YAML* file to improve readability.
 The API specification files should be subject to version control using a source
 code management system - best together with the implementing sources.
 
-You <<192, must>> the component <<219, external>>
-API specification with the deployment of the implementing service, and, hence,
-make it discoverable for the group via our {api-portal}[API Portal].
-
 *Hint:* A good way to explore *OpenAPI 3.0* is to navigate through the
 https://openapi-map.apihandyman.io/[OpenAPI specification mind map] and use
 https://stoplight.io/studio[Stoplight Studio] to design and validate your first API.
